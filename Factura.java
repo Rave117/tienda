@@ -46,9 +46,16 @@ public class Factura {
     public void setCliente(Cliente cliente) {
         this.cliente = cliente;
     }
+    public void agregarProducto(Producto producto){
+        listaProductos.add(producto);
+    }
 
-
-
-    public double calcularTotal() {}
+    public double calcularTotal() {
+        double total = 0;
+        for (Producto producto : listaProductos) {
+            total += producto.getPrecio();
+        }
+        return total;
+    }
 
 }
