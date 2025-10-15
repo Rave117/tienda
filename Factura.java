@@ -50,12 +50,18 @@ public class Factura {
         listaProductos.add(producto);
     }
 
-    public double calcularTotal() {
-        double total = 0;
+    public double calcularSubTotal() {
+        double subTotal = 0;
         for (Producto producto : listaProductos) {
             total += producto.getPrecio();
         }
         return total;
+    }
+    public double calcularDescuento() {
+        return cliente.calcularDescuento(calcularSubTotal());
+    }
+    public double calcularTotal(){
+        return calcularSubTotal()-calcularDescuento();
     }
 
 }
